@@ -1,1 +1,1 @@
-# JavaWeather-Map
+# Weather-Map
