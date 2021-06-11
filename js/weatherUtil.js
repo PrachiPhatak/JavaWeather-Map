@@ -27,5 +27,10 @@ function getWeather(lon, lat) {
 function getWeatherObj(data) {
     let weatherObj = {};
     weatherObj.cityName = data.name;
+    weatherObj.windSpeed = data.wind.speed;
+    weatherObj.timezone = data.timezone;
+    weatherObj.minTemp = data.main.temp_min;
+    weatherObj.maxTemp = data.main.temp_max;
+
     return weatherObj;
 }
