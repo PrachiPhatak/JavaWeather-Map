@@ -7,4 +7,5 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 # key file
-js/api/
+js/api/keys.js
+*.iml
