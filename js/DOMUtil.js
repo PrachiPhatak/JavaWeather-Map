@@ -14,15 +14,43 @@ function showWeatherDOM(data) {
     $("#description").text(weatherDetails.description);
     $("#wind").text(weatherDetails.windSpeed);
     $("#rain").text(weatherDetails.rain);
+    setCurrentWeatherImage(weatherDetails.icon)
     setHourlyTemp(weatherDetails.hourly)
+    setBackground(weatherDetails.isDay);
 }
 
 function setHourlyTemp(hourlyForecastList) {
-    for (let i = 1; i < hourlyForecastList.length; i++) {
-        if(i == 6) break;
+    for (let i = 0; i < hourlyForecastList.length; i++) {
+        if(i === 6) break;
         let temp = "#temp" + i;
         let hour = "#hr" + i;
+        let imageId = "#hourlyWeatherImg" + i;
+        let imgPath = "img/"+hourlyForecastList[i].icon+"-hr.svg";
         $(temp).text(hourlyForecastList[i].temp).append('&deg;');
         $(hour).text(hourlyForecastList[i].time)
+        $(imageId).attr("src", imgPath)
+    }
+}
+
+function setCurrentWeatherImage(iconId){
+    let imgPath = "img/"+iconId+".svg"
+    $("#weatherImg").attr("src", imgPath)
+}
+
+$("#txtExtended").click(function (){
+    if ($("#hourly").is(":visible")){
+        $("#more").text("Click to see Tomorrow's Forecast")
+        $("#hourly").hide(400);
+    }else{
+        $("#more").text("Hide Tomorrow's Forecast")
+        $("#hourly").show(400);;
+    }
+});
+
+function setBackground(isDay){
+    if(isDay){
+        $("body").css("background", "linear-gradient(#00d4ff, #090979)");
+    }else{
+        $("body").css("background", "linear-gradient(black, white)");
     }
 }

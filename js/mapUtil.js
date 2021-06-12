@@ -9,18 +9,19 @@ init();
 function init(){
     map = initMap();
     marker = getMarker();
-    getWeather(marker._lngLat.lng, marker._lngLat.lat)
     addGeocoder();
     getResultsFromGeocoder();
     onMapClickEvent();
+    getWeather(marker._lngLat.lng, marker._lngLat.lat)
+    map.addControl(new mapboxgl.NavigationControl());
 }
 
 function initMap() {
     return new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v10',
+        style: 'mapbox://styles/mapbox/light-v10',
         center: [-95.83494113076989, 29.708232766969303],
-        zoom: 12,
+        zoom: 3,
     })
 }
 
@@ -46,8 +47,7 @@ function getResultsFromGeocoder() {
 
         marker.setLngLat(e.result.geometry.coordinates).addTo(map)
         getWeather(lon, lat);
-
-        results.innerText = JSON.stringify(e.result, null, 2);
+        //results.innerText = JSON.stringify(e.result, null, 2);
     });
 
     // Clear results container when search is cleared.

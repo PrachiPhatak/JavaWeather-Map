@@ -54,6 +54,8 @@ function getForecastObj(data) {
     forecast.sunrise = convertUTCDateToLocalDate(data.city.sunrise);
     forecast.sunset = convertUTCDateToLocalDate(data.city.sunset);
     forecast.hourly = getHourlyData(data);
+    forecast.icon = data.list[0].weather[0].icon;
+    forecast.isDay = isDay(data.list[0].weather[0].icon)
     return forecast;
 }
 
@@ -67,6 +69,13 @@ function convertUTCDateToLocalDate(date) {
     minutes = minutes < 10 ? '0' + minutes : minutes;
     let strTime = hours + ':' + minutes// + ' ' + ampm;
     return strTime;
+}
+
+function isDay(iconName) {
+    console.log("isDay "+iconName)
+    console.log("isDay "+iconName[iconName.length - 1])
+    console.log((iconName[iconName.length - 1] === "d"));
+    return (iconName[iconName.length - 1] === "d")
 }
 
 function locationName(city, country, lon, lat) {
@@ -96,6 +105,7 @@ function getHourlyData(dataList) {
         let forecast = {};
         forecast.temp = (dataList.list[i].main.temp).toFixed(0),
             forecast.time = getHours(dataList.list[i].dt_txt);
+        forecast.icon = (dataList.list[i].weather[0].icon)
         hourlyData[i] = forecast;
     }
     return hourlyData;
@@ -104,9 +114,16 @@ function getHourlyData(dataList) {
 function getHours(dt) {
     let d = new Date(dt);
     let hours = d.getHours();
+    let ampm;
+    if (hours === 12) {
+        ampm = 'pm'
+    } else if (hours > 12) {
+        ampm = 'pm'
+    } else {
+        ampm = "am"
+    }
     hours = hours % 12;
     hours = hours ? hours : 12;
-    let ampm = hours >= 12 ? 'pm' : 'am';
     let strTime = hours + ampm;
     return strTime;
 

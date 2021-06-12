@@ -15,15 +15,15 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div id="geocoder" class="col-12 col-sm-10 mx-auto"></div>
+            <div id="geocoder" class="col-12 col-sm-10 mx-auto mx-lg-auto"></div>
             <div id="locationNameDiv" class="col-12 mb-4 text-center">
                 <h2 id="locationName"></h2>
                 <h6 id="date" class="font-weight-lighter"></h6>
             </div>
-            <div id="currentTemp" class="col-12 mb-4 row">
-                <div class="col-12 col-sm-5 mx-2 pl-0 container row">
-                    <div id="weatherImg" class="pr-0 col-6  text-center">
-                        <img src="img/cloud-moon.svg" alt="">
+            <div id="currentTemp" class="col-12 row mx-0 mb-5">
+                <div class="col-12 col-sm-6 mx-2 pl-0 container row">
+                    <div id="weatherImgDiv" class="pr-0 col-6  text-center">
+                        <img id="weatherImg" src="img/cloud-moon.svg" alt="">
                     </div>
                     <div id="temp" class="col-6 ml-1 ml-sm-2 pl-0 row align-self-end">
                         <h1 id="todayTemp" class="col-12 font-weight-light"></h1>
@@ -32,9 +32,9 @@
                 </div>
                 <div id="vr" class="d-none d-sm-block ml-sm-4"></div>
                 <hr class="col-10 d-block d-sm-none bg-white">
-                <div class="col-12 col-sm-6 text-center container">
+                <div class="col-12 col-sm-5 text-center container">
                     <div class="row">
-                        <div class="col-4 mb-2">
+                        <div class="col-4 mb-2 ">
                             <h3 id="high" class="mb-0 font-weight-light">23</h3>
                             <h6 class="font-weight-lighter text-white-50">High</h6>
                         </div>
@@ -61,37 +61,45 @@
                     </div>
                 </div>
             </div>
+            <div id="txtExtended" class="col-12 text-center">
+                <h6 id="more"><ins>Hide Tomorrow's Forecast</ins></h6>
+            </div>
             <div id="hourly" class="col-12 container">
-                <div class="row justify-content-between mb-4">
-                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                <div class="row justify-content-between mb-2">
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center rounded">
                         <h6 id="hr1" class=col-12">9am</h6>
-                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <img id="hourlyWeatherImg1" src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg"
+                             alt="">
                         <h6 id="temp1" class="col-12 mt-3">21&deg;</h6>
                     </div>
-                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center rounded">
                         <h6 id="hr2" class=col-12">9am</h6>
-                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <img id="hourlyWeatherImg2" src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg"
+                             alt="">
                         <h6 id="temp2" class="col-12 mt-3">21&deg;</h6>
                     </div>
-                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center rounded">
                         <h6 id="hr3" class=col-12">9am</h6>
-                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <img id="hourlyWeatherImg3" src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg"
+                             alt="">
                         <h6 id="temp3" class="col-12 mt-3">21&deg;</h6>
                     </div>
-                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center rounded">
                         <h6 id="hr4" class=col-12">9am</h6>
-                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <img id="hourlyWeatherImg4" src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg"
+                             alt="">
                         <h6 id="temp4" class="col-12 mt-3">21&deg;</h6>
                     </div>
-                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center rounded">
                         <h6 id="hr5" class=col-12">9am</h6>
-                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <img id="hourlyWeatherImg5" src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg"
+                             alt="">
                         <h6 id="temp5" class="col-12 mt-3">21&deg;</h6>
                     </div>
                 </div>
             </div>
             <pre id="result" hidden></pre>
-            <div class="rows-col-12">
+            <div id="mapContainer" class="rows-col-12 mt-4">
                 <div id="map" class="pb-2"></div>
             </div>
         </div>
