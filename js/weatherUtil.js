@@ -30,12 +30,14 @@ function getWeatherObj(data) {
     weatherObj.windSpeed = data.wind.speed;
     weatherObj.timezone = data.timezone;
     weatherObj.currentTemp = (data.main.temp).toFixed(0);
-    weatherObj.minTemp = data.main.temp_min;
-    weatherObj.maxTemp = data.main.temp_max;
+    weatherObj.minTemp = (data.main.temp_min).toFixed(0);;
+    weatherObj.maxTemp = (data.main.temp_max).toFixed(0);
     weatherObj.country = data.sys.country;
     weatherObj.description = capitalized(data.weather[0].description);
     //TODO write function for undefined locations
     weatherObj.location = data.name + ", " + data.sys.country
+    weatherObj.sunrise = data.sys.sunrise/(60*60);
+    weatherObj.sunset = data.sys.sunset;
 
     return weatherObj;
 }

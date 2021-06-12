@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: cadetblue;
+    background-color: #17449c;
     color: white;
 }
 
@@ -22,9 +22,14 @@ body {
 }
 
 #weatherImg{
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
 }
 #todayTemp{
-    font-size: 60px;
+    font-size: 90px;
+}
+
+#vr{
+    border-left:1px solid #FFF;
+    height:150px
 }

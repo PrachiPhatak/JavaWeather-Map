@@ -9,7 +9,10 @@ function showWeatherDOM(data) {
     console.log("Got data from DOM " + data.maxTemp);
     $("#location").text(weatherDetails.location);
     $("#todayTemp").text(weatherDetails.currentTemp).append('&deg;');
+    $("#high").text(weatherDetails.maxTemp).append('&deg;');
+    $("#low").text(weatherDetails.minTemp).append('&deg;');
     $("#date").text(new Date().toDateString());
+    $("#sunrise").text(weatherDetails.sunrise)
     $("#description").text(weatherDetails.description);
 }
 
