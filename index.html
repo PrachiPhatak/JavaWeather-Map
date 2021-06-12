@@ -12,59 +12,81 @@
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
               crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
-
     </head>
     <body>
-
         <div class="container-fluid">
-
-            <div id="geocoder" class="col-12 mx-0"></div>
-            <div id="forecast row">
-                <div class="col-12 mb-4 text-center">
-                    <h2 id="location"></h2>
-                    <h6 id="date" class="font-weight-lighter"></h6>
+            <div id="geocoder" class="col-12 col-sm-10 mx-auto"></div>
+            <div id="locationNameDiv" class="col-12 mb-4 text-center">
+                <h2 id="locationName"></h2>
+                <h6 id="date" class="font-weight-lighter"></h6>
+            </div>
+            <div id="currentTemp" class="col-12 mb-4 row">
+                <div class="col-12 col-sm-5 mx-2 pl-0 container row">
+                    <div id="weatherImg" class="pr-0 col-6  text-center">
+                        <img src="img/cloud-moon.svg" alt="">
+                    </div>
+                    <div id="temp" class="col-6 ml-1 ml-sm-2 pl-0 row align-self-end">
+                        <h1 id="todayTemp" class="col-12 font-weight-light"></h1>
+                        <h6 id="description" class="col-12 text-left font-weight-lighter "></h6>
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <div id="currentTemp" class="row">
-                        <div class="col-12 col-sm-5 mx-2 container row">
-                            <div id="weatherImg" class="pr-0 col-6  text-center">
-                                <img src="img/cloud-moon.svg" alt="">
-                            </div>
-                            <div id="temp" class="col-6 ml-2 pl-0 row align-self-end">
-                                <h1 id="todayTemp" class="col-12 font-weight-light"></h1>
-                                <h6 id="description" class="col-12 text-left font-weight-lighter "></h6>
-                            </div>
+                <div id="vr" class="d-none d-sm-block ml-sm-4"></div>
+                <hr class="col-10 d-block d-sm-none bg-white">
+                <div class="col-12 col-sm-6 text-center container">
+                    <div class="row">
+                        <div class="col-4 mb-2">
+                            <h3 id="high" class="mb-0 font-weight-light">23</h3>
+                            <h6 class="font-weight-lighter text-white-50">High</h6>
                         </div>
-                        <div id="vr" class="d-none d-sm-block ml-sm-4"></div>
-                        <hr class="col-10 d-block d-sm-none bg-white">
-                        <div class="col-12 col-sm-6 text-center container">
-                            <div class="row">
-                                <div class="col-4 mb-2">
-                                    <h3 id="high" class="mb-0 font-weight-light">23</h3>
-                                    <h6 class="font-weight-lighter text-white-50">High</h6>
-                                </div>
-                                <div class="col-4 mb-2">
-                                    <h3 id="wind" class="mb-0 font-weight-light">23</h3>
-                                    <h6 class="font-weight-lighter text-white-50">Wind</h6>
-                                </div>
-                                <div class="col-4 mb-2">
-                                    <h3 id="sunrise" class="mb-0 font-weight-light">23</h3>
-                                    <h6 class="font-weight-lighter text-white-50">Sunrise</h6>
-                                </div>
-                                <div class="col-4 mb-2">
-                                    <h3 id="low" class="mb-0 font-weight-light">23</h3>
-                                    <h6 class="font-weight-lighter text-white-50">Low</h6>
-                                </div>
-                                <div class="col-4 mb-2">
-                                    <h3 id="rain" class="mb-0 font-weight-light">23</h3>
-                                    <h6 class="font-weight-lighter text-white-50">Rain</h6>
-                                </div>
-                                <div class="col-4 mb-2">
-                                    <h3 id="sunset" class="mb-0 font-weight-light">23</h3>
-                                    <h6 class="font-weight-lighter text-white-50">Sunset</h6>
-                                </div>
-                            </div>
+                        <div class="col-4 mb-2">
+                            <h3 id="wind" class="mb-0 font-weight-light">23</h3>
+                            <h6 class="font-weight-lighter text-white-50">Wind</h6>
                         </div>
+                        <div class="col-4 mb-2">
+                            <h3 id="sunrise" class="mb-0 font-weight-light">23</h3>
+                            <h6 class="font-weight-lighter text-white-50">Sunrise</h6>
+                        </div>
+                        <div class="col-4 mb-2">
+                            <h3 id="low" class="mb-0 font-weight-light">23</h3>
+                            <h6 class="font-weight-lighter text-white-50">Low</h6>
+                        </div>
+                        <div class="col-4 mb-2">
+                            <h3 id="rain" class="mb-0 font-weight-light">23</h3>
+                            <h6 class="font-weight-lighter text-white-50">Rain</h6>
+                        </div>
+                        <div class="col-4 mb-2">
+                            <h3 id="sunset" class="mb-0 font-weight-light">23</h3>
+                            <h6 class="font-weight-lighter text-white-50">Sunset</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="hourly" class="col-12 container">
+                <div class="row justify-content-between mb-4">
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                        <h6 class=col-12">9am</h6>
+                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <h6 class="col-12 mt-3">21&deg;</h6>
+                    </div>
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                        <h6 class=col-12">9am</h6>
+                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <h6 class="col-12 mt-3">21&deg;</h6>
+                    </div>
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                        <h6 class=col-12">9am</h6>
+                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <h6 class="col-12 mt-3">21&deg;</h6>
+                    </div>
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                        <h6 class=col-12">9am</h6>
+                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <h6 class="col-12 mt-3">21&deg;</h6>
+                    </div>
+                    <div class="col-2 hourlyBg  py-2 px-1  text-center">
+                        <h6 class=col-12">9am</h6>
+                        <img src="img/cloud-moon-hourly.svg" class="px-0 col-12 hourlyWeatherImg" alt="">
+                        <h6 class="col-12 mt-3">21&deg;</h6>
                     </div>
                 </div>
             </div>
@@ -77,13 +99,8 @@
         <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-
-        <!--        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"-->
-        <!--                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"-->
-        <!--                crossorigin="anonymous"></script>-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
                 crossorigin="anonymous"></script>
@@ -93,13 +110,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
                 integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
                 crossorigin="anonymous"></script>
-
         <!-- custom js -->
         <script src="js/api/keys.js"></script>
         <script src="js/weatherUtil.js"></script>
         <script src="js/mapUtil.js"></script>
         <script src="js/DOMUtil.js"></script>
         <script src="js/stylingUtil.js"></script>
-
     </body>
 </html>

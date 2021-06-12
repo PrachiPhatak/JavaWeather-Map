@@ -64,6 +64,7 @@ function getMarker() {
 
 function onMapClickEvent() {
     map.on("click", function (event) {
+        console.log(event);
         marker.setLngLat(event.lngLat).addTo(map)
         getWeather(event.lngLat.lng, event.lngLat.lat);
     });
