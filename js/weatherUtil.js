@@ -15,10 +15,8 @@ function getWeather(lon, lat) {
         },
         success: function (data) {
             console.log(data)
-            console.log(data.name);
             //showWeatherDOM(getWeatherObj(data));
             showWeatherDOM(getForecastObj(data));
-            //return data
         },
         error: function () {
             alert("Error while getting weather data.")
@@ -52,10 +50,10 @@ function getForecastObj(data) {
     forecast.maxTemp = (data.list[0].main.temp_max).toFixed(0);
     forecast.minTemp = (data.list[0].main.temp_min).toFixed(0);
     forecast.windSpeed = (data.list[0].wind.speed).toFixed(0) + "mph";
-    forecast.rain = (data.list[0].pop) * 100 + "%";
+    forecast.rain = ((data.list[0].pop) * 100).toFixed(0) + "%";
     forecast.sunrise = convertUTCDateToLocalDate(data.city.sunrise);
     forecast.sunset = convertUTCDateToLocalDate(data.city.sunset);
-
+    forecast.hourly = getHourlyData(data);
     return forecast;
 }
 
@@ -90,4 +88,26 @@ function capitalized(str) {
         transformedString = transformedString + arr[i][0].toUpperCase() + arr[i].slice(1);
     }
     return transformedString;
+}
+
+function getHourlyData(dataList) {
+    let hourlyData = [];
+    for (let i = 0; i < dataList.list.length; i++) {
+        let forecast = {};
+        forecast.temp = (dataList.list[i].main.temp).toFixed(0),
+            forecast.time = getHours(dataList.list[i].dt_txt);
+        hourlyData[i] = forecast;
+    }
+    return hourlyData;
+}
+
+function getHours(dt) {
+    let d = new Date(dt);
+    let hours = d.getHours();
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    let ampm = hours >= 12 ? 'pm' : 'am';
+    let strTime = hours + ampm;
+    return strTime;
+
 }

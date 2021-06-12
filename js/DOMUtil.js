@@ -3,10 +3,7 @@ let weatherDetails;
 
 function showWeatherDOM(data) {
     weatherDetails = data;
-    console.log("Got data from DOM " + data.cityName);
-    console.log("Got data from DOM " + data.timezone);
-    console.log("Got data from DOM " + data.sunrise);
-    console.log("Got data from DOM " + data.sunset);
+    console.log("Got data from WeatherUtil for: " + weatherDetails.location);
     $("#locationName").text(weatherDetails.location);
     $("#todayTemp").text(weatherDetails.currentTemp).append('&deg;');
     $("#high").text(weatherDetails.maxTemp).append('&deg;');
@@ -17,4 +14,15 @@ function showWeatherDOM(data) {
     $("#description").text(weatherDetails.description);
     $("#wind").text(weatherDetails.windSpeed);
     $("#rain").text(weatherDetails.rain);
+    setHourlyTemp(weatherDetails.hourly)
+}
+
+function setHourlyTemp(hourlyForecastList) {
+    for (let i = 1; i < hourlyForecastList.length; i++) {
+        if(i == 6) break;
+        let temp = "#temp" + i;
+        let hour = "#hr" + i;
+        $(temp).text(hourlyForecastList[i].temp).append('&deg;');
+        $(hour).text(hourlyForecastList[i].time)
+    }
 }
