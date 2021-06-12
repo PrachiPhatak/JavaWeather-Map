@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: cadetblue;
+    color: white;
+}
+
+#map {
+    height: 400px;
+    border: black 1px solid;
+}
+#forecast{
+    height: 300px;
+}
+#geocoder {
+    z-index: 1;
+    margin: 20px;
+}
+
+.mapboxgl-ctrl-geocoder {
+    min-width: 50%;
+}
+
+#weatherImg{
+    height: 100px;
+    width: 100px;
+}
+#todayTemp{
+    font-size: 60px;
+}
