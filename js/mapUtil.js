@@ -45,7 +45,7 @@ function getResultsFromGeocoder() {
         let lon = e.result.geometry.coordinates[0];
         let lat = e.result.geometry.coordinates[1];
 
-        marker.setLngLat(e.result.geometry.coordinates).addTo(map)
+        marker.setLngLat(e.result.geometry.coordinates)//.addTo(map)
         getWeather(lon, lat);
         //results.innerText = JSON.stringify(e.result, null, 2);
     });
@@ -65,7 +65,8 @@ function getMarker() {
 function onMapClickEvent() {
     map.on("click", function (event) {
         console.log(event);
-        marker.setLngLat(event.lngLat).addTo(map)
+        marker.setLngLat(event.lngLat)//.addTo(map)
         getWeather(event.lngLat.lng, event.lngLat.lat);
+        geocoder.clear();
     });
 }
