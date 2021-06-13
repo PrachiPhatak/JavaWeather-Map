@@ -2,14 +2,12 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background: linear-gradient(black, #5fbfe7);
-    /*background: linear-gradient(#00d4ff, #090979);*/
-    /*background: linear-gradient(#03033d,#090979);*/
 }
 
 #map {
     height: 400px;
     border: black 1px solid;
+    border-radius: 1%;
 }
 
 #locationNameDiv {
@@ -41,7 +39,7 @@ body {
 }
 
 #todayTemp {
-    font-size: 90px;
+    font-size: 80px;
 }
 
 #vr {
