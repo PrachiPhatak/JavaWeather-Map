@@ -5,7 +5,7 @@ let forecast;
 function getWeather(lon, lat) {
     let data1;
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/forecast",
+        url: "https://cors-anywhere.hirshwebsite.website/http://api.openweathermap.org/data/2.5/forecast",
         type: "GET",
         data: {
             APPID: OPEN_WEATHER_TOKEN,
